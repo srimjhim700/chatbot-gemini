@@ -30,14 +30,14 @@ user_input = st.text_input("Ask me anything", value="Hello Gemini!")
 if st.button("Submit"):
     if user_input:
 
-        st.session_state.history.append(("you: ",user_input))
+        # st.session_state.history.append((" ",user_input))
         # Get the response from Gemini API
         response = get_gemini_response(user_input)
-        st.session_state.history.append(("ai: ",response))
+        st.session_state.history.append((" ",response))
 
         # Display the API response in Streamlit
-        for sender,message in st.session_state.history:
-            st.write(f"{sender}{message}")          
+        # for sender,message in st.session_state.history:
+        st.write(f"{response}")          
         
     else:
         st.write("Please enter a prompt.")
